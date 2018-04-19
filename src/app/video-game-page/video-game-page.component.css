@@ -1,0 +1,13 @@
+.row{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+small {
+  display: block;
+  color: #888;
+}
+
+img{
+  width: 100%;
+}

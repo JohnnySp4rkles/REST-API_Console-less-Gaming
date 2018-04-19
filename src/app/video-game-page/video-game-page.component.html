@@ -1,0 +1,30 @@
+<div class="container">
+
+  <a [routerLink]="['/']">Back</a>
+
+  <div class="row">
+    <div class="well well-sm">
+      <div class="row">
+        <div class="col-4">
+          <div *ngIf="vgData.img_ns != '' && vgData !=null && vgData.img_ns != null">
+            <img src="./../../assets/images/vgCovers/{{vgData.img_ns}}" />
+          </div>
+          <div *ngIf="vgData.img_ns ==  '' || vgData == ''  || vgData.img_ns == null">
+            <img src="./../../assets/images/No_Image_Available.png" />
+          </div>
+
+        </div>
+        <div class="col-8">
+          <h2>{{vgData.title}}</h2>
+          <small>{{vgData.publisher}}</small>
+          <p>
+            {{vgData.description}}
+          </p>
+          Year Released: {{vgData.year_released}}
+          <br />
+          <!-- <button type="button" (click)="responseObj()">Response</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

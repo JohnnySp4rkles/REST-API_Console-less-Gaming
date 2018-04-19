@@ -1,0 +1,22 @@
+.jumbotron {
+  background-color: rgb(16, 99, 84);
+  background-image: url("../assets/images/steam-library_1.jpg");
+  background-size: 100%;
+  background-position: center;
+  margin: 0;
+}
+
+.fa-gamepad {
+  margin-right: 10px;
+}
+
+#header {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+#header>h1, p {
+  text-align: center;
+  color: white;
+}

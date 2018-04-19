@@ -1,0 +1,53 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="main-box no-header clearfix">
+        <div class="main-box-body clearfix">
+          <div class="table-responsive">
+            <table class="table user-list">
+              <thead>
+                <tr>
+                  <th><span>Image</span></th>
+                  <th><span>Title:</span></th>
+                  <th><span>Publisher</span></th>
+                  <th><span>Available on:</span></th>
+                </tr>
+              </thead>
+              <div *ngIf="(vgData | filter: searchString).length === 0">
+                <p>
+                  "No matches"
+                </p>
+              </div>
+              <tbody>
+                <tr *ngFor="let videogame of vgData | filter: searchString">
+                  <td>
+                    <img *ngIf="videogame.img_ns == '' || videogame.img_ns == null " src="../../assets/images/No_Image_Available.png">
+                    <img *ngIf="videogame.img_ns != '' && videogame.img_ns != null " src="../../assets/images/vgCovers/{{videogame.img_ns}}">
+                  </td>
+                  <td>
+                    <a [routerLink]="['/video_games', videogame._id]">{{videogame.title}}</a>
+                  </td>
+                  <td>
+                    {{videogame.publisher}}
+                  </td>
+
+                  <td>
+                    <tr>
+                      <ng-container *ngFor="let console of videogame.available_on">
+                        <td class="consoles">
+                          {{console.platform_name}}
+                        </td>
+                      </ng-container>
+                    </tr>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <button type="button" (click)="logIt()">LogIt!</button> -->
