@@ -1,5 +1,5 @@
 <div class="container">
-
+  {{pc_ps_Comp}} {{pc_xb_Comp}} {{ps_xb_Comp}}
   <div class="row">
     <div class="col-lg-12">
       <div class="main-box no-header clearfix">
@@ -14,13 +14,14 @@
                   <th><span>Available on:</span></th>
                 </tr>
               </thead>
-              <div *ngIf="(vgData | filter: searchString).length === 0">
-                <p>
-                  "No matches"
-                </p>
-              </div>
+
               <tbody>
-                <tr *ngFor="let videogame of vgData | filter: searchString">
+                <div *ngIf="(vgData | filter: searchString).length === 0 || (vgData | pcpsCompatability: pc_ps_Comp).length ===0 || (vgData | pcxbCompatability: pc_xb_Comp).length ==0 || (vgData | psxbCompatability: ps_xb_Comp).length ===0">
+                  <p>
+                    No matches
+                  </p>
+                </div>
+                <tr *ngFor="let videogame of vgData | filter: searchString | pcpsCompatability: pc_ps_Comp | pcxbCompatability: pc_xb_Comp | psxbCompatability: ps_xb_Comp">
                   <td>
                     <img *ngIf="videogame.img_ns == '' || videogame.img_ns == null " src="../../assets/images/No_Image_Available.png">
                     <img *ngIf="videogame.img_ns != '' && videogame.img_ns != null " src="../../assets/images/vgCovers/{{videogame.img_ns}}">

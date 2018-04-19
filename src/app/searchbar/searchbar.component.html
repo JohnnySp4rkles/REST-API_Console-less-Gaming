@@ -13,28 +13,28 @@
   <div class="col-10">
 
     <div class="form-check-inline">
-      <input class="form-check-input" [(ngModel)]="buttonParams.pc_ps_Comp" type="checkbox" value="" id="pc_ps_Comp" />
+      <input class="form-check-input" [(ngModel)]="pc_ps_Comp" type="checkbox" value="" id="pc_ps_Comp" />
       <label class="form-check-label" for="pc_ps_Comp">
     <i class="fab fa-windows"></i> Pc - <i class="fab fa-playstation"></i> Ps
   </label>
     </div>
 
     <div class="form-check-inline">
-      <input class="form-check-input" [(ngModel)]="buttonParams.pc_xb_Comp" type="checkbox" value="" id="pc_xb_Comp" />
+      <input class="form-check-input" [(ngModel)]="pc_xb_Comp" type="checkbox" value="" id="pc_xb_Comp" />
       <label class="form-check-label" for="pc_xb_Comp">
     <i class="fab fa-windows"></i> Pc - <i class="fab fa-xbox"></i> Xbox
   </label>
     </div>
     <div class="form-check-inline">
-      <input class="form-check-input" [(ngModel)]="buttonParams.ps_xb_Comp" type="checkbox" value="" id="ps_xb_Comp" />
+      <input class="form-check-input" [(ngModel)]="ps_xb_Comp" type="checkbox" value="" id="ps_xb_Comp" />
       <label class="form-check-label" for="ps_xb_Comp">
     <i class="fab fa-playstation"></i> Ps - <i class="fab fa-xbox"></i> Xbox
   </label>
     </div>
-    {{buttonParams.pc_ps_Comp}} | {{buttonParams.pc_xb_Comp}} | {{buttonParams.ps_xb_Comp}}
+    {{pc_ps_Comp}} | {{pc_xb_Comp}} | {{ps_xb_Comp}}
   </div>
 
   <div class="col-1"></div>
 </div>
 <!-- <router-outlet [searchString]="searchString"></router-outlet> -->
-<app-listing [searchString]="searchString"></app-listing>
+<app-listing [searchString]="searchString" [pc_ps_Comp]="pc_ps_Comp" [pc_xb_Comp]="pc_xb_Comp" [ps_xb_Comp]="ps_xb_Comp"></app-listing>

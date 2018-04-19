@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { VideoGame } from './video-game';
+import { Videogame } from './videogame';
 
 @Injectable()
 export class VideoGameService {

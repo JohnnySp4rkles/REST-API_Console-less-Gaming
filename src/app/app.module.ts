@@ -11,6 +11,9 @@ import { ListingComponent } from './listing/listing.component';
 import { VideoGameService } from './video-game.service';
 import { FilterPipe } from './filter.pipe';
 import { VideoGamePageComponent } from './video-game-page/video-game-page.component';
+import { PcpsCompatabilityPipe } from './pcps-compatability.pipe';
+import { PcxbCompatabilityPipe } from './pcxb-compatability.pipe';
+import { PsxbCompatabilityPipe } from './psxb-compatability.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { VideoGamePageComponent } from './video-game-page/video-game-page.compon
     SearchbarComponent,
     ListingComponent,
     FilterPipe,
-    VideoGamePageComponent
+    VideoGamePageComponent,
+    PcpsCompatabilityPipe,
+    PcxbCompatabilityPipe,
+    PsxbCompatabilityPipe
   ],
   imports: [
     BrowserModule,

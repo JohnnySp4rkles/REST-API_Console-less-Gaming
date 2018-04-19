@@ -10,11 +10,7 @@ export class FilterPipe implements PipeTransform {
       return videogames;
     }
     return videogames.filter(function(videogame) {
-      if (videogames.length > 0) {
         return videogame.title.toLowerCase().includes(searchString.toLowerCase());
-      } else {
-        return 0;
-      }
     })
   }
 
