@@ -59,9 +59,9 @@ router.post('/video_game', function(request, response) {
   var loggingString = dateLog.toLocaleString() + ":" + dateLog.getMilliseconds() + " - POST - Posting a video to database";
 
   var new_video_game = new video_game();
-  new_video_game.name = request.body.name;
+  new_video_game.title = request.body.title;
   new_video_game.publisher = request.body.publisher;
-  new_video_game.url = request.body.url;
+  new_video_game.img_ns = request.body.url;
   new_video_game.available_on = request.body.available_on;
 
   console.log(request.body);
@@ -81,7 +81,7 @@ router.put('/video_game/:id', function(request, response) {
   console.log(dateLog.toLocaleString() + ":" + dateLog.getMilliseconds() + " - Updating a video");
   video_game.findByIdAndUpdate(request.params.id, {
       $set: {
-        name: request.body.name,
+        title: request.body.title,
         publisher: request.body.publisher,
         url: request.body.url,
         available_on: request.body.available_on
@@ -112,4 +112,4 @@ router.delete('/video_game/:id', function(request, response) {
   })
 });
 
-module.exports = router
+module.exports = router;
