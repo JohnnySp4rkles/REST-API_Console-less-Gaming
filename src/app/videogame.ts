@@ -20,4 +20,8 @@ export class Videogame {
     playable: Number;
     unplayable: Number;
   }];
+
+  constructor(){
+    
+  }
 }

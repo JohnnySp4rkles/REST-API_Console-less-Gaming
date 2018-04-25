@@ -12,7 +12,6 @@ export class VideoGameService {
   // Define URL to make API Requests
   private _getUrl = "http://localhost:3000/api/video_games/";
 
-  // Define methods to handle requests
   getGames(){
   return this._http.get(this._getUrl).map(response => response.json());
 }
