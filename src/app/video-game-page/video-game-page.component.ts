@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoGameService} from './../video-game.service';
 import { ActivatedRoute } from '@angular/router';
+import {Videogame } from '../videogame';
 
 @Component({
   selector: 'app-video-game-page',
@@ -10,13 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 export class VideoGamePageComponent implements OnInit {
 
   constructor(private _videoGameService:VideoGameService, private route:ActivatedRoute) {
-    this.vgData = route.snapshot.params['id'];
+    this.url = route.snapshot.params['id'];
   }
-  vgData; // Singular Object!
+  vgData:Videogame = new Videogame(); // Singular Object!
+  url:string;
 
   ngOnInit() {
-    //console.log(videogameID);
-    this._videoGameService.getGame(this.vgData).subscribe(response => this.vgData = response)
+    this._videoGameService.getGame(this.url).subscribe(response => this.vgData = response)
   }
 
 }

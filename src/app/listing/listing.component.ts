@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VideoGameService } from './../video-game.service';
-import { FilterPipe } from '../filter.pipe';
+import { Videogame } from '../videogame';
 
 @Component({
   selector: 'app-listing',
@@ -15,18 +15,14 @@ export class ListingComponent implements OnInit {
   @Input() pc_ps_Comp: boolean;
   @Input() pc_xb_Comp: boolean;
   @Input() ps_xb_Comp: boolean;
-  vgData = 0;
-
-  // pc_ps_Comp = false;
-  // pc_xb_Comp = false;
-  // ps_xb_Comp = false;
+  vgData: Array<Videogame>=[];
 
   ngOnInit() {
     this._videoGameService.getGames().subscribe(response => this.vgData = response)
   }
 
   logIt() {
-    console.log(this.vgData);
+    console.log(this.vgData.length);
   }
 
 }

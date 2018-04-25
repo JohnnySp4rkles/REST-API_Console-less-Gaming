@@ -6,10 +6,11 @@
     <div class="well well-sm">
       <div class="row">
         <div class="col-4">
-          <div *ngIf="vgData.img_ns != '' && vgData !=null && vgData.img_ns != null">
+          <div *ngIf="vgData.img_ns != '' && vgData != undefined && vgData.img_ns != null">
+          <!-- <div *ngIf="vgData != undefined"> -->
             <img src="./../../assets/images/vgCovers/{{vgData.img_ns}}" />
           </div>
-          <div *ngIf="vgData.img_ns ==  '' || vgData == ''  || vgData.img_ns == null">
+          <div *ngIf="vgData.img_ns ==  '' || vgData == ''  || vgData.img_ns == null || vgData.img_ns == undefined || vgData == undefined">
             <img src="./../../assets/images/No_Image_Available.png" />
           </div>
 
@@ -20,7 +21,9 @@
           <p>
             {{vgData.description}}
           </p>
-          Year Released: {{vgData.year_released}}
+          <p>
+            Year Released: {{vgData.year_released}}
+          </p>
           <br />
           <!-- <button type="button" (click)="responseObj()">Response</button> -->
         </div>
