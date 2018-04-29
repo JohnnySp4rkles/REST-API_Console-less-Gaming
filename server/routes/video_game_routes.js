@@ -61,10 +61,16 @@ router.post('/video_game', function(request, response) {
   var new_video_game = new video_game();
   new_video_game.title = request.body.title;
   new_video_game.publisher = request.body.publisher;
-  new_video_game.img_ns = request.body.url;
+  new_video_game.description = request.body.description;
+  new_video_game.year_released = request.body.year_released;
+  new_video_game.img_ns = request.body.img_ns;
   new_video_game.available_on = request.body.available_on;
+  new_video_game.genres = request.body.genres;
+  new_video_game.modes.single_player = request.body.modes.single_player;
+  new_video_game.modes.multi_player = request.body.modes.multi_player;
+  new_video_game.modes.local_co_op = request.body.modes.local_co_op;
 
-  console.log(request.body);
+  //console.log(request.body);
   new_video_game.save(function(error, insertedVideo_Game) {
     if (error) {
       console.log("Error saving video game");
@@ -83,8 +89,16 @@ router.put('/video_game/:id', function(request, response) {
       $set: {
         title: request.body.title,
         publisher: request.body.publisher,
-        url: request.body.url,
-        available_on: request.body.available_on
+        description: request.body.description,
+        year_released: request.body.year_released,
+        img_ns: request.body.img_ns,
+        available_on: request.body.available_on,
+        genres: request.body.genres,
+        modes:{
+          single_player:request.body.modes.single_player,
+          multi_player: request.body.modes.multi_player,
+          local_co_op: request.body.modes.local_co_op
+        }
       }
 
     }, {
@@ -94,6 +108,7 @@ router.put('/video_game/:id', function(request, response) {
       if (error) {
         response.send("Error updating");
       } else {
+        console.log(updatedVideo_Game.title+" updated in the database");
         response.json(updatedVideo_Game);
       }
     })
@@ -107,7 +122,8 @@ router.delete('/video_game/:id', function(request, response) {
     if (error) {
       console.log("Error deleting video game");
     } else {
-      response.json(deleted_video);
+      console.log(deleted_video.title+" was removed from the database");
+      response.json(deleted_video.title);
     }
   })
 });
