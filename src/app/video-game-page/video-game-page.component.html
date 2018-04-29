@@ -7,7 +7,6 @@
       <div class="row">
         <div class="col-4">
           <div *ngIf="vgData.img_ns != '' && vgData != undefined && vgData.img_ns != null">
-          <!-- <div *ngIf="vgData != undefined"> -->
             <img src="./../../assets/images/vgCovers/{{vgData.img_ns}}" />
           </div>
           <div *ngIf="vgData.img_ns ==  '' || vgData == ''  || vgData.img_ns == null || vgData.img_ns == undefined || vgData == undefined">
@@ -21,11 +20,64 @@
           <p>
             {{vgData.description}}
           </p>
-          <p>
-            Year Released: {{vgData.year_released}}
-          </p>
+          <span class = "bold">Modes:</span><br />
+            <span *ngIf="vgData.modes.single_player" style="padding-left:10px;"><span class="semi-bold">Single Player</span><br /></span>
+            <span *ngIf="vgData.modes.multi_player" style="padding-left:10px;"><span class="semi-bold">Multi-Player</span><br /></span>
+            <span *ngIf="vgData.modes.local_co_op" style="padding-left:10px;"><span class="semi-bold">Local Co-Op</span><br /></span>
+            <!-- <span style="padding-left:10px;"><span class="semi-bold">Multi-Player</span> {{vgData.modes.multi_player}}</span><br />
+            <span style="padding-left:10px;"><span class="semi-bold">Local Co-Op</span> {{vgData.modes.local_co_op}}</span><br /> -->
           <br />
-          <!-- <button type="button" (click)="responseObj()">Response</button> -->
+          <span class="bold">Genres:</span><ng-container *ngFor="let i of vgData.genres">
+            <span style="padding-right:10px;">{{i}}</span>
+          </ng-container>
+          <p>
+            <span class="bold">Year Released</span>: {{vgData.year_released}}
+          </p>
+
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th><span>Available on:</span></th>
+                  <th><span>Compatible with:</span></th>
+                  <th><span>Server Join:</span></th>
+                  <th><span>Party Join:</span></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let console of vgData.available_on">
+                  <td>
+                    <span>{{console.platform_name}}</span>
+                  </td>
+                  <td>
+                    <ng-container *ngIf="console.compatible_with.length == 0">
+                      <span>No other compatibility!</span>
+                    </ng-container>
+                    <ng-container *ngFor="let comp of console.compatible_with">
+                      <span>{{comp.platform_name}}<br /></span>
+                    </ng-container>
+                  </td>
+                  <td>
+                    <ng-container *ngIf="console.compatible_with.length == 0">
+                      <span>N/A</span>
+                    </ng-container>
+                    <ng-container *ngFor="let comp of console.compatible_with">
+                      <span>{{comp.server_join}}<br /></span>
+                    </ng-container>
+                  </td>
+                  <td>
+                    <ng-container *ngIf="console.compatible_with.length == 0">
+                      <span>N/A</span>
+                    </ng-container>
+                    <ng-container *ngFor="let comp of console.compatible_with">
+                      <span>{{comp.party_join}}<br /></span>
+                    </ng-container>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

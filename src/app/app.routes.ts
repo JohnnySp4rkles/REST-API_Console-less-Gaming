@@ -3,10 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListingComponent} from './listing/listing.component';
 import { VideoGamePageComponent} from './video-game-page/video-game-page.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent} from './contactus/contactus.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 const APP_ROUTES:Routes = [
   {path:'', component: SearchbarComponent},
-  {path:'video_games/:id', component: VideoGamePageComponent}
+  {path:'video_games/:id', component: VideoGamePageComponent},
+  {path:'about', component: AboutusComponent},
+  {path:'contact', component: ContactusComponent},
+  {path:'thankyou', component: ThankyouComponent}
 ];
 
 @NgModule({

@@ -14,6 +14,10 @@ import { VideoGamePageComponent } from './video-game-page/video-game-page.compon
 import { PcpsCompatabilityPipe } from './pcps-compatability.pipe';
 import { PcxbCompatabilityPipe } from './pcxb-compatability.pipe';
 import { PsxbCompatabilityPipe } from './psxb-compatability.pipe';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { PsxbCompatabilityPipe } from './psxb-compatability.pipe';
     VideoGamePageComponent,
     PcpsCompatabilityPipe,
     PcxbCompatabilityPipe,
-    PsxbCompatabilityPipe
+    PsxbCompatabilityPipe,
+    NavbarComponent,
+    AboutusComponent,
+    ContactusComponent,
+    ThankyouComponent
   ],
   imports: [
     BrowserModule,
